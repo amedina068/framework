@@ -959,3 +959,35 @@ if (! function_exists('view')) {
         return $factory->make($view, $data, $mergeData);
     }
 }
+
+if (! function_exists('when')) {
+    /**
+     * Execute callback if the given condition is true.
+     *
+     * @param  bool  $boolean
+     * @param  callable  $callback
+     * @return mixed
+     */
+    function when($boolean, callable $callback)
+    {
+        if ($boolean) {
+            return $callback();
+        }
+    }
+}
+
+if (! function_exists('when_not')) {
+    /**
+     * Execute callback if the given condition is false.
+     *
+     * @param  bool  $boolean
+     * @param  callable  $callback
+     * @return mixed
+     */
+    function when_not($boolean, callable $callback)
+    {
+        if (! $boolean) {
+            return $callback();
+        }
+    }
+}
